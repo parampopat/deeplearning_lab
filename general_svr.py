@@ -1,8 +1,9 @@
-'''
+#!/usr/bin/env python
+"""
 __author__ = "Param Popat"
 __version__ = "1"
 __git__ = "https://github.com/parampopat/"
-'''
+"""
 
 
 from sklearn.svm import SVR
@@ -22,11 +23,12 @@ def run(linear=True):
     :return:
     """
     dataset = load_boston()
-    dataset = pd.DataFrame(dataset.data, columns=dataset.feature_names)
-    X = dataset.iloc[:, :-1].values
-    y = dataset.iloc[:, -1].values
+    X = pd.DataFrame(dataset.data, columns=dataset.feature_names)
+    y = pd.DataFrame(dataset.target)
+    X = X.values
+    y = y.values
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, shuffle=False)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, shuffle=True, random_state=28)
     if linear:
         model = SVR(kernel='linear')
         model = model.fit(X_train, y_train)

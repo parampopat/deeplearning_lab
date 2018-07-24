@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 __author__ = "Param Popat"
 __version__ = "1"
